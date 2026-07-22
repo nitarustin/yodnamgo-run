@@ -60,10 +60,12 @@
                 </span>
 
                 <!-- Realtime Voice Transcript Panel -->
-                <div class="w-full max-w-lg bg-slate-900 text-slate-100 p-4 rounded-2xl shadow-inner min-h-[75px] flex flex-col justify-center text-center">
+
+                <div class="hidden w-full max-w-lg bg-slate-900 text-slate-100 p-4 rounded-2xl shadow-inner min-h-[75px] flex flex-col justify-center text-center">
                     <span class="text-[10px] uppercase tracking-wider text-teal-400 font-bold block mb-1">เสียงที่ตรวจพบ:</span>
                     <p id="txtSpeechRealtime" class="text-slate-300 italic text-sm font-medium">กดปุ่มไมค์ด้านบนแล้วเริ่มพูดคีย์เวิร์ดคำถามได้เลย...</p>
                 </div>
+
 
                 <!-- Simple Quick Settings Menu -->
                 <div class="w-full max-w-lg mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200/60">
@@ -283,7 +285,6 @@
             const percentage = Math.round(score * 100);
 
             txtMatchedQuestion.textContent = match.q;
-            txtMatchedMeta.textContent = `ตรงกับข้อที่ ${match.id} ค้นหาเจออัตโนมัติ`;
             badgeScore.textContent = `ความแม่นยำการจับคู่ ${percentage}%`;
             badgeScore.classList.remove('hidden');
 
@@ -327,7 +328,7 @@
             }
 
             if (!SpeechRecognition) {
-                txtSpeechRealtime.textContent = "เบราว์เซอร์ไม่รองรับตัวแปลงเสียง! แนะนำให้เปิดผ่าน Chrome บน PC/มือถือ";
+                //txtSpeechRealtime.textContent = "เบราว์เซอร์ไม่รองรับตัวแปลงเสียง! แนะนำให้เปิดผ่าน Chrome บน PC/มือถือ";
                 btnToggleMic.disabled = true;
                 return;
             }
